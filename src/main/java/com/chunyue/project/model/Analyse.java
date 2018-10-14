@@ -1,4 +1,4 @@
-package com.sample;
+package com.chunyue.project.model;
 
 
 public class Analyse {
