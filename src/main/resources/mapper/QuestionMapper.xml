@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chunyue.project.dao.QuestionMapper">
+  <resultMap id="BaseResultMap" type="com.chunyue.project.model.Question">
+    <id column="qid" jdbcType="BIGINT" property="qid" />
+    <result column="question" jdbcType="VARCHAR" property="question" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    qid, question
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from Question
+    where qid = #{qid,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from Question
+    where qid = #{qid,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.chunyue.project.model.Question">
+    insert into Question (qid, question)
+    values (#{qid,jdbcType=BIGINT}, #{question,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.chunyue.project.model.Question">
+    insert into Question
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="qid != null">
+        qid,
+      </if>
+      <if test="question != null">
+        question,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="qid != null">
+        #{qid,jdbcType=BIGINT},
+      </if>
+      <if test="question != null">
+        #{question,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.chunyue.project.model.Question">
+    update Question
+    <set>
+      <if test="question != null">
+        question = #{question,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where qid = #{qid,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.chunyue.project.model.Question">
+    update Question
+    set question = #{question,jdbcType=VARCHAR}
+    where qid = #{qid,jdbcType=BIGINT}
+  </update>
+</mapper>

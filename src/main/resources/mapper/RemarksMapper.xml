@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chunyue.project.dao.RemarksMapper">
+  <resultMap id="BaseResultMap" type="com.chunyue.project.model.Remarks">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="dtr" jdbcType="VARCHAR" property="dtr" />
+    <result column="dtrmess" jdbcType="VARCHAR" property="dtrmess" />
+    <result column="ctr" jdbcType="VARCHAR" property="ctr" />
+    <result column="ctrmess" jdbcType="VARCHAR" property="ctrmess" />
+    <result column="state" jdbcType="INTEGER" property="state" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, dtr, dtrmess, ctr, ctrmess, state
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from Remarks
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from Remarks
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.chunyue.project.model.Remarks">
+    insert into Remarks (id, dtr, dtrmess, 
+      ctr, ctrmess, state
+      )
+    values (#{id,jdbcType=BIGINT}, #{dtr,jdbcType=VARCHAR}, #{dtrmess,jdbcType=VARCHAR}, 
+      #{ctr,jdbcType=VARCHAR}, #{ctrmess,jdbcType=VARCHAR}, #{state,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.chunyue.project.model.Remarks">
+    insert into Remarks
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="dtr != null">
+        dtr,
+      </if>
+      <if test="dtrmess != null">
+        dtrmess,
+      </if>
+      <if test="ctr != null">
+        ctr,
+      </if>
+      <if test="ctrmess != null">
+        ctrmess,
+      </if>
+      <if test="state != null">
+        state,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="dtr != null">
+        #{dtr,jdbcType=VARCHAR},
+      </if>
+      <if test="dtrmess != null">
+        #{dtrmess,jdbcType=VARCHAR},
+      </if>
+      <if test="ctr != null">
+        #{ctr,jdbcType=VARCHAR},
+      </if>
+      <if test="ctrmess != null">
+        #{ctrmess,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.chunyue.project.model.Remarks">
+    update Remarks
+    <set>
+      <if test="dtr != null">
+        dtr = #{dtr,jdbcType=VARCHAR},
+      </if>
+      <if test="dtrmess != null">
+        dtrmess = #{dtrmess,jdbcType=VARCHAR},
+      </if>
+      <if test="ctr != null">
+        ctr = #{ctr,jdbcType=VARCHAR},
+      </if>
+      <if test="ctrmess != null">
+        ctrmess = #{ctrmess,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        state = #{state,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.chunyue.project.model.Remarks">
+    update Remarks
+    set dtr = #{dtr,jdbcType=VARCHAR},
+      dtrmess = #{dtrmess,jdbcType=VARCHAR},
+      ctr = #{ctr,jdbcType=VARCHAR},
+      ctrmess = #{ctrmess,jdbcType=VARCHAR},
+      state = #{state,jdbcType=INTEGER}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

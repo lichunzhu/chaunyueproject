@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chunyue.project.dao.ReportMapper">
+  <resultMap id="BaseResultMap" type="com.chunyue.project.model.Report">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="uid" jdbcType="VARCHAR" property="uid" />
+    <result column="mass" jdbcType="VARCHAR" property="mass" />
+    <result column="uid2" jdbcType="VARCHAR" property="uid2" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, uid, mass, uid2
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from Report
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from Report
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.chunyue.project.model.Report">
+    insert into Report (id, uid, mass, 
+      uid2)
+    values (#{id,jdbcType=BIGINT}, #{uid,jdbcType=VARCHAR}, #{mass,jdbcType=VARCHAR}, 
+      #{uid2,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.chunyue.project.model.Report">
+    insert into Report
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="uid != null">
+        uid,
+      </if>
+      <if test="mass != null">
+        mass,
+      </if>
+      <if test="uid2 != null">
+        uid2,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="uid != null">
+        #{uid,jdbcType=VARCHAR},
+      </if>
+      <if test="mass != null">
+        #{mass,jdbcType=VARCHAR},
+      </if>
+      <if test="uid2 != null">
+        #{uid2,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.chunyue.project.model.Report">
+    update Report
+    <set>
+      <if test="uid != null">
+        uid = #{uid,jdbcType=VARCHAR},
+      </if>
+      <if test="mass != null">
+        mass = #{mass,jdbcType=VARCHAR},
+      </if>
+      <if test="uid2 != null">
+        uid2 = #{uid2,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.chunyue.project.model.Report">
+    update Report
+    set uid = #{uid,jdbcType=VARCHAR},
+      mass = #{mass,jdbcType=VARCHAR},
+      uid2 = #{uid2,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

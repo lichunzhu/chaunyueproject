@@ -1,27 +1,23 @@
 package com.chunyue.project.model;
 
-
 public class Question {
+    private Long qid;
 
-  private long qid;
-  private String question;
+    private String question;
 
+    public Long getQid() {
+        return qid;
+    }
 
-  public long getQid() {
-    return qid;
-  }
+    public void setQid(Long qid) {
+        this.qid = qid;
+    }
 
-  public void setQid(long qid) {
-    this.qid = qid;
-  }
+    public String getQuestion() {
+        return question;
+    }
 
-
-  public String getQuestion() {
-    return question;
-  }
-
-  public void setQuestion(String question) {
-    this.question = question;
-  }
-
+    public void setQuestion(String question) {
+        this.question = question == null ? null : question.trim();
+    }
 }

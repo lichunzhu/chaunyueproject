@@ -1,67 +1,63 @@
 package com.chunyue.project.model;
 
-
 public class Remarks {
+    private Long id;
 
-  private long id;
-  private String dtr;
-  private String dtrmess;
-  private String ctr;
-  private String ctrmess;
-  private long state;
+    private String dtr;
 
+    private String dtrmess;
 
-  public long getId() {
-    return id;
-  }
+    private String ctr;
 
-  public void setId(long id) {
-    this.id = id;
-  }
+    private String ctrmess;
 
+    private Integer state;
 
-  public String getDtr() {
-    return dtr;
-  }
+    public Long getId() {
+        return id;
+    }
 
-  public void setDtr(String dtr) {
-    this.dtr = dtr;
-  }
+    public void setId(Long id) {
+        this.id = id;
+    }
 
+    public String getDtr() {
+        return dtr;
+    }
 
-  public String getDtrmess() {
-    return dtrmess;
-  }
+    public void setDtr(String dtr) {
+        this.dtr = dtr == null ? null : dtr.trim();
+    }
 
-  public void setDtrmess(String dtrmess) {
-    this.dtrmess = dtrmess;
-  }
+    public String getDtrmess() {
+        return dtrmess;
+    }
 
+    public void setDtrmess(String dtrmess) {
+        this.dtrmess = dtrmess == null ? null : dtrmess.trim();
+    }
 
-  public String getCtr() {
-    return ctr;
-  }
+    public String getCtr() {
+        return ctr;
+    }
 
-  public void setCtr(String ctr) {
-    this.ctr = ctr;
-  }
+    public void setCtr(String ctr) {
+        this.ctr = ctr == null ? null : ctr.trim();
+    }
 
+    public String getCtrmess() {
+        return ctrmess;
+    }
 
-  public String getCtrmess() {
-    return ctrmess;
-  }
+    public void setCtrmess(String ctrmess) {
+        this.ctrmess = ctrmess == null ? null : ctrmess.trim();
+    }
 
-  public void setCtrmess(String ctrmess) {
-    this.ctrmess = ctrmess;
-  }
+    public Integer getState() {
+        return state;
+    }
 
-
-  public long getState() {
-    return state;
-  }
-
-  public void setState(long state) {
-    this.state = state;
-  }
-
+    public void setState(Integer state) {
+        this.state = state;
+    }
 }

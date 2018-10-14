@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chunyue.project.dao.UserInfoMapper">
+  <resultMap id="BaseResultMap" type="com.chunyue.project.model.UserInfo">
+    <id column="uid" jdbcType="VARCHAR" property="uid" />
+    <result column="nickname" jdbcType="VARCHAR" property="nickname" />
+    <result column="gender" jdbcType="VARCHAR" property="gender" />
+    <result column="schoolname" jdbcType="VARCHAR" property="schoolname" />
+    <result column="hometown" jdbcType="VARCHAR" property="hometown" />
+    <result column="signature" jdbcType="VARCHAR" property="signature" />
+    <result column="phoneno" jdbcType="VARCHAR" property="phoneno" />
+    <result column="weichatno" jdbcType="VARCHAR" property="weichatno" />
+    <result column="imagepath" jdbcType="VARCHAR" property="imagepath" />
+    <result column="certification" jdbcType="VARCHAR" property="certification" />
+    <result column="characters" jdbcType="VARCHAR" property="characters" />
+    <result column="birth" jdbcType="TIMESTAMP" property="birth" />
+    <result column="height" jdbcType="REAL" property="height" />
+    <result column="weight" jdbcType="REAL" property="weight" />
+    <result column="university" jdbcType="VARCHAR" property="university" />
+    <result column="major" jdbcType="VARCHAR" property="major" />
+    <result column="interest" jdbcType="VARCHAR" property="interest" />
+    <result column="Education" jdbcType="VARCHAR" property="education" />
+    <result column="startyear" jdbcType="INTEGER" property="startyear" />
+    <result column="province" jdbcType="VARCHAR" property="province" />
+    <result column="city" jdbcType="VARCHAR" property="city" />
+    <result column="subjects" jdbcType="VARCHAR" property="subjects" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    uid, nickname, gender, schoolname, hometown, signature, phoneno, weichatno, imagepath, 
+    certification, characters, birth, height, weight, university, major, interest, Education, 
+    startyear, province, city, subjects
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from UserInfo
+    where uid = #{uid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from UserInfo
+    where uid = #{uid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.chunyue.project.model.UserInfo">
+    insert into UserInfo (uid, nickname, gender, 
+      schoolname, hometown, signature, 
+      phoneno, weichatno, imagepath, 
+      certification, characters, birth, 
+      height, weight, university, 
+      major, interest, Education, 
+      startyear, province, city, 
+      subjects)
+    values (#{uid,jdbcType=VARCHAR}, #{nickname,jdbcType=VARCHAR}, #{gender,jdbcType=VARCHAR}, 
+      #{schoolname,jdbcType=VARCHAR}, #{hometown,jdbcType=VARCHAR}, #{signature,jdbcType=VARCHAR}, 
+      #{phoneno,jdbcType=VARCHAR}, #{weichatno,jdbcType=VARCHAR}, #{imagepath,jdbcType=VARCHAR}, 
+      #{certification,jdbcType=VARCHAR}, #{characters,jdbcType=VARCHAR}, #{birth,jdbcType=TIMESTAMP}, 
+      #{height,jdbcType=REAL}, #{weight,jdbcType=REAL}, #{university,jdbcType=VARCHAR}, 
+      #{major,jdbcType=VARCHAR}, #{interest,jdbcType=VARCHAR}, #{education,jdbcType=VARCHAR}, 
+      #{startyear,jdbcType=INTEGER}, #{province,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, 
+      #{subjects,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.chunyue.project.model.UserInfo">
+    insert into UserInfo
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="uid != null">
+        uid,
+      </if>
+      <if test="nickname != null">
+        nickname,
+      </if>
+      <if test="gender != null">
+        gender,
+      </if>
+      <if test="schoolname != null">
+        schoolname,
+      </if>
+      <if test="hometown != null">
+        hometown,
+      </if>
+      <if test="signature != null">
+        signature,
+      </if>
+      <if test="phoneno != null">
+        phoneno,
+      </if>
+      <if test="weichatno != null">
+        weichatno,
+      </if>
+      <if test="imagepath != null">
+        imagepath,
+      </if>
+      <if test="certification != null">
+        certification,
+      </if>
+      <if test="characters != null">
+        characters,
+      </if>
+      <if test="birth != null">
+        birth,
+      </if>
+      <if test="height != null">
+        height,
+      </if>
+      <if test="weight != null">
+        weight,
+      </if>
+      <if test="university != null">
+        university,
+      </if>
+      <if test="major != null">
+        major,
+      </if>
+      <if test="interest != null">
+        interest,
+      </if>
+      <if test="education != null">
+        Education,
+      </if>
+      <if test="startyear != null">
+        startyear,
+      </if>
+      <if test="province != null">
+        province,
+      </if>
+      <if test="city != null">
+        city,
+      </if>
+      <if test="subjects != null">
+        subjects,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="uid != null">
+        #{uid,jdbcType=VARCHAR},
+      </if>
+      <if test="nickname != null">
+        #{nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null">
+        #{gender,jdbcType=VARCHAR},
+      </if>
+      <if test="schoolname != null">
+        #{schoolname,jdbcType=VARCHAR},
+      </if>
+      <if test="hometown != null">
+        #{hometown,jdbcType=VARCHAR},
+      </if>
+      <if test="signature != null">
+        #{signature,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneno != null">
+        #{phoneno,jdbcType=VARCHAR},
+      </if>
+      <if test="weichatno != null">
+        #{weichatno,jdbcType=VARCHAR},
+      </if>
+      <if test="imagepath != null">
+        #{imagepath,jdbcType=VARCHAR},
+      </if>
+      <if test="certification != null">
+        #{certification,jdbcType=VARCHAR},
+      </if>
+      <if test="characters != null">
+        #{characters,jdbcType=VARCHAR},
+      </if>
+      <if test="birth != null">
+        #{birth,jdbcType=TIMESTAMP},
+      </if>
+      <if test="height != null">
+        #{height,jdbcType=REAL},
+      </if>
+      <if test="weight != null">
+        #{weight,jdbcType=REAL},
+      </if>
+      <if test="university != null">
+        #{university,jdbcType=VARCHAR},
+      </if>
+      <if test="major != null">
+        #{major,jdbcType=VARCHAR},
+      </if>
+      <if test="interest != null">
+        #{interest,jdbcType=VARCHAR},
+      </if>
+      <if test="education != null">
+        #{education,jdbcType=VARCHAR},
+      </if>
+      <if test="startyear != null">
+        #{startyear,jdbcType=INTEGER},
+      </if>
+      <if test="province != null">
+        #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null">
+        #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="subjects != null">
+        #{subjects,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.chunyue.project.model.UserInfo">
+    update UserInfo
+    <set>
+      <if test="nickname != null">
+        nickname = #{nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null">
+        gender = #{gender,jdbcType=VARCHAR},
+      </if>
+      <if test="schoolname != null">
+        schoolname = #{schoolname,jdbcType=VARCHAR},
+      </if>
+      <if test="hometown != null">
+        hometown = #{hometown,jdbcType=VARCHAR},
+      </if>
+      <if test="signature != null">
+        signature = #{signature,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneno != null">
+        phoneno = #{phoneno,jdbcType=VARCHAR},
+      </if>
+      <if test="weichatno != null">
+        weichatno = #{weichatno,jdbcType=VARCHAR},
+      </if>
+      <if test="imagepath != null">
+        imagepath = #{imagepath,jdbcType=VARCHAR},
+      </if>
+      <if test="certification != null">
+        certification = #{certification,jdbcType=VARCHAR},
+      </if>
+      <if test="characters != null">
+        characters = #{characters,jdbcType=VARCHAR},
+      </if>
+      <if test="birth != null">
+        birth = #{birth,jdbcType=TIMESTAMP},
+      </if>
+      <if test="height != null">
+        height = #{height,jdbcType=REAL},
+      </if>
+      <if test="weight != null">
+        weight = #{weight,jdbcType=REAL},
+      </if>
+      <if test="university != null">
+        university = #{university,jdbcType=VARCHAR},
+      </if>
+      <if test="major != null">
+        major = #{major,jdbcType=VARCHAR},
+      </if>
+      <if test="interest != null">
+        interest = #{interest,jdbcType=VARCHAR},
+      </if>
+      <if test="education != null">
+        Education = #{education,jdbcType=VARCHAR},
+      </if>
+      <if test="startyear != null">
+        startyear = #{startyear,jdbcType=INTEGER},
+      </if>
+      <if test="province != null">
+        province = #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null">
+        city = #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="subjects != null">
+        subjects = #{subjects,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where uid = #{uid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.chunyue.project.model.UserInfo">
+    update UserInfo
+    set nickname = #{nickname,jdbcType=VARCHAR},
+      gender = #{gender,jdbcType=VARCHAR},
+      schoolname = #{schoolname,jdbcType=VARCHAR},
+      hometown = #{hometown,jdbcType=VARCHAR},
+      signature = #{signature,jdbcType=VARCHAR},
+      phoneno = #{phoneno,jdbcType=VARCHAR},
+      weichatno = #{weichatno,jdbcType=VARCHAR},
+      imagepath = #{imagepath,jdbcType=VARCHAR},
+      certification = #{certification,jdbcType=VARCHAR},
+      characters = #{characters,jdbcType=VARCHAR},
+      birth = #{birth,jdbcType=TIMESTAMP},
+      height = #{height,jdbcType=REAL},
+      weight = #{weight,jdbcType=REAL},
+      university = #{university,jdbcType=VARCHAR},
+      major = #{major,jdbcType=VARCHAR},
+      interest = #{interest,jdbcType=VARCHAR},
+      Education = #{education,jdbcType=VARCHAR},
+      startyear = #{startyear,jdbcType=INTEGER},
+      province = #{province,jdbcType=VARCHAR},
+      city = #{city,jdbcType=VARCHAR},
+      subjects = #{subjects,jdbcType=VARCHAR}
+    where uid = #{uid,jdbcType=VARCHAR}
+  </update>
+</mapper>
