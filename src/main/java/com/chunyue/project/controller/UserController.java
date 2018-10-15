@@ -17,9 +17,9 @@ public class UserController {
 
     @RequestMapping(value = "add",method = RequestMethod.POST)
     @ResponseBody
-    public int addUser( User user){
-        System.out.println(user.getPassword());
-        System.out.println(user.getRole());
-        return userService.addUser(user);
+    public int addUser(){
+//        System.out.println(user.getPassword());
+//        System.out.println(user.getRole());
+        return userService.addUser();
     }
 }

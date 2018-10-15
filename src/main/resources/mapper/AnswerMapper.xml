@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.chunyue.project.dao.AnswerMapper">
+
   <resultMap id="BaseResultMap" type="com.chunyue.project.model.Answer">
     <id column="aid" jdbcType="BIGINT" property="aid" />
     <result column="answer" jdbcType="VARCHAR" property="answer" />
   </resultMap>
+
   <sql id="Base_Column_List">
     aid, answer
   </sql>
@@ -55,58 +57,5 @@
     set answer = #{answer,jdbcType=VARCHAR}
     where aid = #{aid,jdbcType=BIGINT}
   </update>
-  <resultMap id="BaseResultMap" type="com.chunyue.project.model.Answer">
-    <id column="aid" jdbcType="BIGINT" property="aid" />
-    <result column="answer" jdbcType="VARCHAR" property="answer" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    aid, answer
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from Answer
-    where aid = #{aid,jdbcType=BIGINT}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
-    delete from Answer
-    where aid = #{aid,jdbcType=BIGINT}
-  </delete>
-  <insert id="insert" parameterType="com.chunyue.project.model.Answer">
-    insert into Answer (aid, answer)
-    values (#{aid,jdbcType=BIGINT}, #{answer,jdbcType=VARCHAR})
-  </insert>
-  <insert id="insertSelective" parameterType="com.chunyue.project.model.Answer">
-    insert into Answer
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="aid != null">
-        aid,
-      </if>
-      <if test="answer != null">
-        answer,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="aid != null">
-        #{aid,jdbcType=BIGINT},
-      </if>
-      <if test="answer != null">
-        #{answer,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.chunyue.project.model.Answer">
-    update Answer
-    <set>
-      <if test="answer != null">
-        answer = #{answer,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where aid = #{aid,jdbcType=BIGINT}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.chunyue.project.model.Answer">
-    update Answer
-    set answer = #{answer,jdbcType=VARCHAR}
-    where aid = #{aid,jdbcType=BIGINT}
-  </update>
+
 </mapper>
