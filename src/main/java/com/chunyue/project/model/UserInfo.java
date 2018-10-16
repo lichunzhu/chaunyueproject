@@ -1,6 +1,9 @@
 package com.chunyue.project.model;
 
+import java.lang.reflect.Field;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 public class UserInfo {
     private String uid;
@@ -221,5 +224,14 @@ public class UserInfo {
 
     public void setSubjects(String subjects) {
         this.subjects = subjects == null ? null : subjects.trim();
+    }
+
+    public Map<String, Object> getAllInfo() throws IllegalAccessException {
+        Field[] declaredFields = UserInfo.class.getDeclaredFields();
+        Map<String, Object> allInfo = new HashMap<>();
+        for (Field field: declaredFields) {
+            allInfo.put(field.getName(), field.get(this));
+        }
+        return allInfo;
     }
 }
