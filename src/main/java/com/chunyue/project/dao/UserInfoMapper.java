@@ -1,7 +1,11 @@
 package com.chunyue.project.dao;
 
 import com.chunyue.project.model.UserInfo;
+import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Component;
 
+@Mapper
+@Component
 public interface UserInfoMapper {
     int deleteByPrimaryKey(String uid);
 
